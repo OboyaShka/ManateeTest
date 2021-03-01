@@ -46,31 +46,29 @@ namespace ManateeTrelloTest
             var list = board.Lists.FirstOrDefault();      //Подключение к спискам (колонкам в Trello)
             await list.Refresh();
             var card = list.Cards.FirstOrDefault();       //Подключение к карточкам 
-            await card.Refresh();
+            await card.Refresh();    
 
-            Console.WriteLine(board);
-            Console.WriteLine(list);
-            Console.WriteLine(card);
-
-
-            Console.WriteLine("___________");
-
-            //Выводит название списков
+            /*//Выводит название списков
             foreach (var listq in board.Lists)
             {
                 Console.WriteLine(listq);
                 await list.Refresh();
-
-                Console.WriteLine("_ _ _ _ _");         
-            }
-
-            //Выводит название карточек первого списка
+                 Console.WriteLine(" ");    
+                     //Выводит название карточек первого списка*/
             foreach (var cardq in list.Cards)
             {
-                Console.WriteLine(cardq);
+     
+                    Console.WriteLine("[" + cardq.Id + "]");
+                    Console.WriteLine("[" + cardq.Name + "]");
+                    Console.WriteLine("[" + cardq.Description + "]");
+                    Console.WriteLine("[" + cardq.CreationDate + "]");
 
-            }
+                }
 
+                Console.WriteLine(" ");         
+            
+       
+            
         }
     }
 }
